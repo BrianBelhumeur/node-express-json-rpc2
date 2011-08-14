@@ -13,20 +13,20 @@ Then wihin a route, use res.rpc to handle a given method:
 
 app.post('/path/for/rpc/calls', function (req, res, next){
     res.rpc('method_name', function (params) {
-    	// do processing here
+        // do processing here
 
-    	// if everything is OK return result object:
-    	return { result: resultData }
+        // if everything is OK return result object:
+        return { result: resultData }
 
-    	// if something is wrong, return an error object:
-    	return {
-    		error: {
-    			code: 'INVALID_PARAMS', // or use numeric code
-    			// optional:
-    			message: 'You gave me invalid parameters!', 
-    			data: data // extra information on the error
-    		}
-    	}
+        // if something is wrong, return an error object:
+        return {
+            error: {
+                code: 'INVALID_PARAMS', // or use numeric code
+                // optional:
+                message: 'You gave me invalid parameters!', 
+                data: data // extra information on the error
+            }
+        }
     });
 });
 
@@ -36,23 +36,23 @@ http://groups.google.com/group/json-rpc/web/json-rpc-2-0
 You can reference error codes by static string. For example, if you return:
 {
     error: {
-    	code: 'INVALID_REQUEST'
+        code: 'INVALID_REQUEST'
     }
 }
 
 it will be converted to:
 {
     error: {
-    	code: -32600,
-    	message: 'Invalid request'
+        code: -32600,
+        message: 'Invalid request'
     }
 }
 
 The error code constants for reference:
-Static string    	Code	Message
+Static string        Code    Message
 ------------------------------------------------
-'PARSE_ERROR'    	-32700	'Parse error'
-'INVALID_REQUEST'    -32600	'Invalid request'
-'METHOD_NOT_FOUND'    -32601	'Method not found'
-'INVALID_PARAMS'    -32602	'Invalid parameters'
-'INTERNAL_ERROR'    -32603	'Internal error'
+'PARSE_ERROR'        -32700    'Parse error'
+'INVALID_REQUEST'    -32600    'Invalid request'
+'METHOD_NOT_FOUND'    -32601    'Method not found'
+'INVALID_PARAMS'    -32602    'Invalid parameters'
+'INTERNAL_ERROR'    -32603    'Internal error'
