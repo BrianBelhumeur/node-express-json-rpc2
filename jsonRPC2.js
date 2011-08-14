@@ -184,8 +184,10 @@ module.exports = function jsonRPC2(){
             addProcedure( rpcList[i] );
         }
 
+	// RPC calls are handled within routes
         next();
 
+	// any responses not yet handled get a "Mehod not found" error
         for ( key in procedures ) {
             proc = procedures[ key ];
             procLen = proc.length;
@@ -195,6 +197,7 @@ module.exports = function jsonRPC2(){
             }
         }
 
+	// send response(s)
         if ( responses.length > 0 ) {
             if ( ! isBatch ) {
                 responses = responses[0];
