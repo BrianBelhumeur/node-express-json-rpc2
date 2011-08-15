@@ -60,6 +60,6 @@ Static string        Code    Message
 ------------------------------------------------
 'PARSE_ERROR'        -32700    'Parse error'
 'INVALID_REQUEST'    -32600    'Invalid request'
-'METHOD_NOT_FOUND'    -32601    'Method not found'
-'INVALID_PARAMS'    -32602    'Invalid parameters'
-'INTERNAL_ERROR'    -32603    'Internal error'
+'METHOD_NOT_FOUND'   -32601    'Method not found'
+'INVALID_PARAMS'     -32602    'Invalid parameters'
+'INTERNAL_ERROR'     -32603    'Internal error'
