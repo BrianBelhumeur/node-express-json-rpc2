@@ -32,6 +32,7 @@ module.exports = function jsonRPC2(){
 			isBatch = true,
 			responses = [],
 			responseCount = 0;
+			finalOutput = '',
 			procedures = {},
 			errorCodes = {
 				'PARSE_ERROR': -32700,
@@ -121,7 +122,7 @@ module.exports = function jsonRPC2(){
 				}
 			},
 			respond = function (id, responseObj) {
-				var response= {
+				var response = {
 						jsonrpc: '2.0',
 						id: id
 					},
@@ -179,11 +180,9 @@ module.exports = function jsonRPC2(){
 			sendResponses = function () {
 				// send response(s)
 				if ( responses.length > 0 ) {
-					if ( ! isBatch ) {
-						responses = responses[0];
-					}
+					finalOutput = ( isBatch ) ? responses : responses[0];
 
-					res.end( JSON.stringify( responses ) );
+					res.end( JSON.stringify( finalOutput ) );
 				}
 				else {
 					res.end();
