@@ -182,6 +182,11 @@ module.exports = function jsonRPC2(){
 				if ( responses.length > 0 ) {
 					finalOutput = ( isBatch ) ? responses : responses[0];
 
+					// add JSONP callback if extant
+					if ( res.query && res.query.callback ) {
+						finalOutput = res.query.callback + '( return ' + finalOutput + '; );';
+					}
+
 					res.end( JSON.stringify( finalOutput ) );
 				}
 				else {
