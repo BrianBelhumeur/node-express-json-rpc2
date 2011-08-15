@@ -9,24 +9,31 @@ app.configure(function(){
     app.use( app.router );
 });
 
-Then wihin a route, use res.rpc to handle a given method:
+Then wihin a route, use res.rpc to handle a given method. If the request is NOT a notification, a response
+function will be passed in after the parameters to handle the response.
 
 app.post('/path/for/rpc/calls', function (req, res, next){
-    res.rpc('method_name', function (params) {
+    // notification (no response expected)
+    res.rpc('notification_method', function (params) {
+        // do processing here
+    });
+
+    // non-notification (response expected)
+    res.rpc('method_name', function (params, respond) {
         // do processing here
 
         // if everything is OK return result object:
-        return { result: resultData }
+        respond( { result: resultData } );
 
         // if something is wrong, return an error object:
-        return {
+        respond({
             error: {
                 code: 'INVALID_PARAMS', // or use numeric code
                 // optional:
                 message: 'You gave me invalid parameters!', 
-                data: data // extra information on the error
+                data: data
             }
-        }
+        });
     });
 });
 
