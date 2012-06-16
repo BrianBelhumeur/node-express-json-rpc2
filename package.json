@@ -1,0 +1,20 @@
+{
+	"name": "connect-json-rpc2",
+	"version": "1.0.0",
+	"description": "Route-based JSON-RPC2 middleware for Connect/Express",
+	"keywords": [
+		"json-rpc",
+		"jsonrpc",
+		"jsonrpc2"
+	],
+	"author": "Brian Belhumeur <belhumeur@gmail.com>",
+	"license": "MIT",
+	"dependencies": {
+		"connect": "1.x"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/BrianBelhumeur/node-connect-JSON-RPC2.git"
+	},
+	"main": "index"
+}

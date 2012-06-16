@@ -1,6 +1,6 @@
 This is a JSON-RPC v2 handler middleware for the Connect / Express libraries on node.js <http://nodejs.org>.
 
-First, simply include jsonRPC2 in your configure/use statements BEFORE app.router:
+First, simply include jsonRPC2 in your configure/use statements before app.router:
 
 app.configure(function(){
     ...
@@ -9,10 +9,10 @@ app.configure(function(){
     app.use( app.router );
 });
 
-Then wihin a route, use res.rpc to handle a given method. If the request is NOT a notification, a response
+Then wihin a route, use res.rpc to handle a given method. Unless the request is a notification, a response
 function will be passed in after the parameters to handle the response.
 
-app.post('/path/for/rpc/calls', function (req, res, next){
+app.post('/path/for/rpc/calls', function (req, res, next) {
     // notification (no response expected)
     res.rpc('notification_method', function (params) {
         // do processing here
@@ -30,7 +30,7 @@ app.post('/path/for/rpc/calls', function (req, res, next){
             error: {
                 code: 'INVALID_PARAMS', // or use numeric code
                 // optional:
-                message: 'You gave me invalid parameters!', 
+                message: 'You gave me invalid parameters!',
                 data: data
             }
         });
@@ -38,7 +38,7 @@ app.post('/path/for/rpc/calls', function (req, res, next){
 });
 
 The middleware provides standard error codes and messages defined by the JSON-RPC version 2 spec at:
-http://groups.google.com/group/json-rpc/web/json-rpc-2-0
+http://www.jsonrpc.org/spec.html
 
 You can reference error codes by static string. For example, if you return:
 {
@@ -56,7 +56,7 @@ it will be converted to:
 }
 
 The error code constants for reference:
-Static string        Code    Message
+Static string        Code      Message
 ------------------------------------------------
 'PARSE_ERROR'        -32700    'Parse error'
 'INVALID_REQUEST'    -32600    'Invalid request'
