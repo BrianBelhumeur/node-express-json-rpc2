@@ -16,5 +16,8 @@
 		"type": "git",
 		"url": "git://github.com/BrianBelhumeur/node-express-JSON-RPC2.git"
 	},
-	"main": "index"
+	"main": "index",
+	"engines": {
+		"node": "*"
+	}
 }

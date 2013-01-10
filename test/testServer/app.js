@@ -3,7 +3,6 @@
  */
 
 var express = require('express'),
-	//routes = require('./routes'),
 	jsonrpc = require('node-express-JSON-RPC2');
 
 var app = module.exports = express.createServer();
