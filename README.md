@@ -1,6 +1,9 @@
 This is a JSON-RPC v2 handler middleware for the Express library on [node.js](http://nodejs.org).
 
-First, simply include jsonRPC2 in your configure/use statements before app.router:
+First, simply include node-express-JSON-RPC2 in your configure/use statements before app.router:
+
+    var express = require('express'),
+    	jsonrpc = require('node-express-JSON-RPC2');
 
     app.configure(function(){
     	...
