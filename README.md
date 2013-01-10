@@ -14,7 +14,7 @@ First, simply include node-express-JSON-RPC2 in your configure/use statements be
 
 Then wihin a route, use res.rpc() to handle a given method. The first argument is the method name and the second argument is the function that will be invoked to handle the request.
 
-The first argument passed to the invokation function is the parameters for the RPC method. Unless the request is a notification, the second argument will be a function to handle the response.
+The first argument passed to the invokation function is the value of the "params" property from the RPC request. Unless the request is a notification, the second argument will be a function to handle the response.
 
     app.post('/path/for/rpc/calls', function(req, res, next){
     	// notification (no response expected)
