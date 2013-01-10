@@ -1,4 +1,4 @@
-This is a JSON-RPC v2 handler middleware for the Express library on [node.js](http://nodejs.org). It is designed for use within routes
+This is a JSON-RPC v2 handler middleware for the Express library on [node.js](http://nodejs.org). It is designed for use within routes.
 
 First, simply include node-express-JSON-RPC2 in your configure/use statements before app.router:
 
