@@ -25,9 +25,9 @@ function will be passed in after the parameters to handle the response.
     		// if everything is OK return result object:
     		respond( { result: resultData } );
     
-    		// if something is wrong, return an error code OR:
+    		// if something is wrong, return an error code:
     		respond(jsonrpc.INVALID_PARAMS)
-    		// extended error object
+    		// OR an extended error object:
     		respond({
     			error: {
     				code: jsonrpc.INVALID_PARAMS,
@@ -44,6 +44,7 @@ You can reference error codes by static string. For example, you may:
 `respond(jsonRPC.INVALID_REQUEST);`
 
 And your response will be converted to:
+
     {
     	error: {
     		code: -32600,
@@ -52,6 +53,7 @@ And your response will be converted to:
     }
 
 The error code constants for reference:
+
     Variable Name		Code	  Message
     ------------------------------------------------
     PARSE_ERROR		-32700	'Parse error'
