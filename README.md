@@ -47,13 +47,15 @@ You can reference error codes by static string. For example, you may:
 
     respond(jsonRPC.INVALID_REQUEST);
 
-And your response will be converted to:
+And your response will go out as:
 
     {
-    	error: {
-    		code: -32600,
-    		message: 'Invalid request'
-    	}
+    	"jsonrpc": "2.0",
+    	"error": {
+    		"code": -32600,
+    		"message": "Invalid Request"
+    	},
+    	"id": null
     }
 
 The error code constants for reference:
