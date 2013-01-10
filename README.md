@@ -26,7 +26,7 @@ function will be passed in after the parameters to handle the response.
     		// do processing here
     
     		// if everything is OK return result object:
-    		respond( { result: resultData } );
+    		respond({ result: resultData });
     
     		// if something is wrong, return an error code:
     		respond(jsonrpc.INVALID_PARAMS)
@@ -43,9 +43,9 @@ function will be passed in after the parameters to handle the response.
 
 The middleware provides standard error codes and messages defined by the [JSON-RPC version 2 spec](http://www.jsonrpc.org/specification)
 
-You can reference error codes by static string. For example, you may:
+You can reference error codes by using built-in variable names. For example, you may:
 
-    respond(jsonRPC.INVALID_REQUEST);
+    respond(jsonrpc.INVALID_REQUEST);
 
 And your response will go out as:
 
