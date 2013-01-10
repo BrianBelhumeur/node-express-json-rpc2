@@ -1,4 +1,4 @@
-This is a JSON-RPC v2 handler middleware for the Express library on [node.js](http://nodejs.org).
+This is a JSON-RPC v2 handler middleware for the Express library on [node.js](http://nodejs.org). It is designed for use within routes
 
 First, simply include node-express-JSON-RPC2 in your configure/use statements before app.router:
 
@@ -12,17 +12,18 @@ First, simply include node-express-JSON-RPC2 in your configure/use statements be
     	app.use( app.router );
     });
 
-Then wihin a route, use res.rpc to handle a given method. Unless the request is a notification, a response
-function will be passed in after the parameters to handle the response.
+Then wihin a route, use res.rpc() to handle a given method. The first argument is the method name and the second argument is the function that will be invoked to handle the request.
 
-    app.post('/path/for/rpc/calls', function (req, res, next) {
+The first argument passed to the invokation function is the parameters for the RPC method. Unless the request is a notification, the second argument will be a function to handle the response.
+
+    app.post('/path/for/rpc/calls', function(req, res, next){
     	// notification (no response expected)
     	res.rpc('notification_method', function (params) {
     		// do processing here
     	});
     
     	// non-notification (response expected)
-    	res.rpc('method_name', function (params, respond) {
+    	res.rpc('method_name', function(params, respond){
     		// do processing here
     
     		// if everything is OK return result object:
