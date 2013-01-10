@@ -67,4 +67,4 @@ The error code constants for reference:
     INTERNAL_ERROR   -32603  'Internal error'
 
 
-**Note** For strict adherence to the specification, you cannot use bodyParser in conjuction with node-express-JSON-RPC2 because bodyParser will catch invalid JSON and return early, preventing a "Parse error" RPC response. If you are not terribly worried about strict compliance, using bodyParser is fine.
+**Note:** For strict adherence to the specification, you cannot use bodyParser in conjuction with node-express-JSON-RPC2 because bodyParser will catch invalid JSON and return early, preventing a "Parse error" RPC response. If you are not terribly worried about strict compliance, using bodyParser is fine.
