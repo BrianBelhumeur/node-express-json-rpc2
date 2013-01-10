@@ -65,3 +65,6 @@ The error code constants for reference:
     METHOD_NOT_FOUND -32601  'Method not found'
     INVALID_PARAMS   -32602  'Invalid parameters'
     INTERNAL_ERROR   -32603  'Internal error'
+
+
+**Note** For strict adherence to the specification, you cannot use bodyParser in conjuction with node-express-JSON-RPC2 because bodyParser will catch invalid JSON and return early, preventing a "Parse error" RPC response. If you are not terribly worried about strict compliance, using bodyParser is fine.
