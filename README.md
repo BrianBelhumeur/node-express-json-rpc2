@@ -41,7 +41,8 @@ function will be passed in after the parameters to handle the response.
 The middleware provides standard error codes and messages defined by the [JSON-RPC version 2 spec](http://www.jsonrpc.org/specification)
 
 You can reference error codes by static string. For example, you may:
-`respond(jsonRPC.INVALID_REQUEST);`
+
+    respond(jsonRPC.INVALID_REQUEST);
 
 And your response will be converted to:
 
@@ -54,10 +55,10 @@ And your response will be converted to:
 
 The error code constants for reference:
 
-    Variable Name		Code	  Message
+    Variable Name    Code     Message
     ------------------------------------------------
-    PARSE_ERROR		-32700	'Parse error'
-    INVALID_REQUEST	-32600	'Invalid request'
-    METHOD_NOT_FOUND   -32601	'Method not found'
-    INVALID_PARAMS	 -32602	'Invalid parameters'
-    INTERNAL_ERROR	 -32603	'Internal error'
+    PARSE_ERROR      -32700  'Parse error'
+    INVALID_REQUEST  -32600  'Invalid request'
+    METHOD_NOT_FOUND -32601  'Method not found'
+    INVALID_PARAMS   -32602  'Invalid parameters'
+    INTERNAL_ERROR   -32603  'Internal error'
