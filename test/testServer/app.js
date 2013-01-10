@@ -31,20 +31,38 @@ app.get('/', function (req, res, next) {
 });
 
 app.all('/api', function (req, res, next) {
-	res.rpc( 'subtract', function (params, respond) {
+	res.rpc('subtract', function (params, respond) {
 		var result;
 
-		if ( Array.isArray(params) ) {
+		if (Array.isArray(params)) {
 			result = params[0] - params[1];	
-		} else if ( typeof params === 'object' ) {
+		} else if (typeof params === 'object') {
 			result = params['param1'] - params['param2'];
 		}
 
-		if (typeof result === 'number') {
-			respond( { result: result } );
+		if (isNaN(result)) {
+			respond(jsonrpc.INVALID_PARAMS);
 		} else {
-			respond( jsonrpc.INVALID_PARAMS );
+			respond({ result: result });
 		}
+	});
+
+	res.rpc('sum', function (params, respond) {
+		var result;
+
+		if (Array.isArray(params)) {
+			result = params.reduce(function(total, val){ return total + val; });	
+		}
+
+		if (isNaN(result) || typeof result === 'undefined') {
+			respond(jsonrpc.INVALID_PARAMS);
+		} else {
+			respond({ result: result });
+		}
+	});
+
+	res.rpc('get_data', function (params, respond) {
+		respond({ result: ["hello", 5] });
 	});
 
 	res.rpc('notify', function (params) {
@@ -52,7 +70,7 @@ app.all('/api', function (req, res, next) {
 	});
 });
 
-app.error( function( err, req, res, next ) {
+app.error(function( err, req, res, next) {
 	console.log( err );
 });
 
