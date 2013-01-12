@@ -98,7 +98,7 @@ and your response will go out as:
     	"error": {
     		"code": -32600,
     		"message": "More informational message",
-    		data: [ 'Debug info...' ]
+    		"data": [ "Debug info..." ]
     	},
     	"id": null
     }
