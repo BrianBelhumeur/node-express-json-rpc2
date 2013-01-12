@@ -1,4 +1,4 @@
-This is a JSON-RPC v2 handler middleware for the Express library on [node.js](http://nodejs.org). It is designed for use within routes. You can install it via:
+node-express-json-rpc2 is a [JSON-RPC version 2 spec](http://www.jsonrpc.org/specification)-compliant handler middleware for the Express library on [node.js](http://nodejs.org). It is designed for use within routes. You can install it via:
 
     npm install node-express-json-rpc2
 
