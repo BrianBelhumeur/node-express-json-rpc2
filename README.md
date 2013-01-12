@@ -14,7 +14,7 @@ First, simply include node-express-JSON-RPC2 in your configure/use statements be
 
 Then wihin a route, use res.rpc() to handle a given method. The first argument is the method name and the second argument is the function that will be invoked to handle the request.
 
-The first argument passed to the invokation function is the value of the "params" property from the RPC request. Unless the request is a notification, the second argument will be a function to handle the response. The response function will automatically wrap the data passed to it in the RPC response object containing the request ID and jsonrpc property.
+The first argument passed to the invocation function is the value of the "params" property from the RPC request. Unless the request is a notification, the second argument will be a function to handle the response. The response function will automatically wrap the data passed to it in the RPC response object containing the request ID and jsonrpc property.
 
     app.post('/path/for/rpc/calls', function(req, res, next){
     	// notification (no response expected)
@@ -70,4 +70,4 @@ The error code constants for reference:
     INTERNAL_ERROR   -32603  'Internal error'
 
 
-**Note:** For strict adherence to the specification, you cannot use bodyParser in conjuction with node-express-JSON-RPC2 because bodyParser will catch invalid JSON and return early, preventing a "Parse error" RPC response. If you are not terribly worried about strict compliance, using bodyParser is fine.
+**Note:** For strict adherence to the specification, you cannot use bodyParser in conjuction with node-express-JSON-RPC2 because bodyParser will catch invalid JSON and return early, preventing a proper "Parse error" RPC response. If you are not terribly worried about strict compliance, using bodyParser is fine.
