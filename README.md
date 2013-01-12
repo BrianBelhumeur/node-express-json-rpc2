@@ -83,7 +83,13 @@ and your response will go out as:
 
 or with an error object (message and data are optional):
 
-    respond({ error: { code: jsonrpc.INVALID_REQUEST, message: "More informational message", data: [ 'Debug info...' ] } });
+    respond({ 
+    	error: {
+	    	code: jsonrpc.INVALID_REQUEST,
+	    	message: "More informational message",
+	    	data: [ 'Debug info...' ] 
+    	} 
+    });
 
 and your response will go out as:
 
