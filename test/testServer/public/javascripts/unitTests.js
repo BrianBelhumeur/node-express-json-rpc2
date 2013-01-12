@@ -8,6 +8,14 @@ $(document).ready(function() {
 		},
 		id: null
 	};
+	var INVALID_PARAMS = {
+		jsonrpc: '2.0',
+		error: {
+			code: -32602,
+			message: 'Invalid request'
+		},
+		id: null
+	};
 	var PARSE_ERROR = {
 		jsonrpc: '2.0',
 		error: {
@@ -202,6 +210,35 @@ $(document).ready(function() {
 						},
 						id: RPC_ID
 					},
+					'Response is correct.'
+				);
+			}
+		});
+	});
+	asyncTest('Call with invalid parameters', 2, function() {
+		$.ajax({
+			contentType: 'application/json; charset=UTF-8',
+			data: JSON.stringify({
+				jsonrpc: '2.0',
+				method: 'subtract',
+				params: {
+					param1: 23,
+					param2: 'qqq'
+				},
+				id: RPC_ID
+			}),
+			success: function(data, textStatus, jqXHR) {
+				equal(jqXHR.status, 200, 'HTTP return code is 200');
+				deepEqual(
+					data, 
+					{
+						jsonrpc: '2.0',
+						error: {
+							code: -32602,
+							message: 'Invalid parameters'
+						},
+						id: RPC_ID
+					}, 
 					'Response is correct.'
 				);
 			}

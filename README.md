@@ -1,6 +1,10 @@
+### Install
+
 node-express-json-rpc2 is a [JSON-RPC version 2 spec](http://www.jsonrpc.org/specification)-compliant handler middleware for the Express library on [node.js](http://nodejs.org). It is designed for use within routes. You can install it via:
 
     npm install node-express-json-rpc2
+
+### Setup
 
 To use, simply include node-express-JSON-RPC2 in your configure/use statements before app.router:
 
@@ -14,7 +18,9 @@ To use, simply include node-express-JSON-RPC2 in your configure/use statements b
     	app.use( app.router );
     });
 
-Then wihin a route, use res.rpc() to handle a given method. The first argument is the method name and the second argument is the function that will be invoked to handle the request.
+### Use
+
+Within a route, use res.rpc() to handle a given method. The first argument is the method name and the second argument is the function that will be invoked to handle the request.
 
 The first argument passed to the invocation function is the value of the "params" property from the RPC request. Unless the request is a notification, the second argument will be a function to handle the response. The response function will automatically wrap the data passed to it in the RPC response object containing the request ID and jsonrpc property.
 
@@ -44,11 +50,29 @@ The first argument passed to the invocation function is the value of the "params
     	});
     });
 
-The middleware provides standard error codes and messages defined by the [JSON-RPC version 2 spec](http://www.jsonrpc.org/specification)
+### Success Responses
 
-You can reference error codes by using built-in variable names. For example, you may:
+To respond successfully, simpy pass in an object with a key of 'result' and whatever value you want to respond with:
+
+    respond({ result: [ 'Success!' ] });
+
+And your response will go out as:
+
+    {
+    	"jsonrpc": "2.0",
+    	"result": [ "Success!" ],
+    	"id": XXX // id will match the ID of the request
+    }
+
+### Error Responses
+
+The middleware provides standard error codes and messages defined by the [JSON-RPC version 2 spec](http://www.jsonrpc.org/specification). You can reference error codes by using built-in variable names. For example, you may respond with just the error code:
 
     respond(jsonrpc.INVALID_REQUEST);
+
+or with an error object:
+
+    respond({ error: { code: jsonrpc.INVALID_REQUEST, message: "Invalid Request" } });
 
 And your response will go out as:
 
