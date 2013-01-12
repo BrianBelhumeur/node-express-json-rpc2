@@ -70,17 +70,29 @@ The middleware provides standard error codes and messages defined by the [JSON-R
 
     respond(jsonrpc.INVALID_REQUEST);
 
-or with an error object:
-
-    respond({ error: { code: jsonrpc.INVALID_REQUEST, message: "Invalid Request" } });
-
-And your response will go out as:
+and your response will go out as:
 
     {
     	"jsonrpc": "2.0",
     	"error": {
     		"code": -32600,
     		"message": "Invalid Request"
+    	},
+    	"id": null
+    }
+
+or with an error object (message and data are optional):
+
+    respond({ error: { code: jsonrpc.INVALID_REQUEST, message: "More informational message", data: [ 'Debug info...' ] } });
+
+and your response will go out as:
+
+    {
+    	"jsonrpc": "2.0",
+    	"error": {
+    		"code": -32600,
+    		"message": "More informational message",
+    		data: [ 'Debug info...' ]
     	},
     	"id": null
     }
