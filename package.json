@@ -1,6 +1,6 @@
 {
 	"name": "node-express-json-rpc2",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Route-based JSON-RPC middleware for Express",
 	"keywords": [
 		"json-rpc",
