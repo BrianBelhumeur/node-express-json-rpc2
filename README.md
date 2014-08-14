@@ -9,11 +9,11 @@ node-express-json-rpc2 is a [JSON-RPC version 2 spec](http://www.jsonrpc.org/spe
 To use, simply include node-express-JSON-RPC2 in your configure/use statements before app.router:
 
     var express = require('express'),
-    	jsonrpc = require('node-express-JSON-RPC2');
+    	jsonrpc = require('node-express-json-rpc2');
 
     app.configure(function(){
     	...
-    	app.use( express.jsonrpc() );
+    	app.use( jsonrpc() );
     	...
     	app.use( app.router );
     });
